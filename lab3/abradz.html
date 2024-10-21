@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona internetowa</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="kolorujtlo.js" type="text/javascript"></script>
+    <script src="timedate.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body onload="startclock()">
+
+    <nav>
+        <div id="watch">
+            <div id="zegarek"></div>
+            <div id="data"></div>
+        </div>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="burj.html">Burdż Chalifa</a></li>
+            <li><a href="merdeka.html">Merdeka 118</a></li>
+            <li><a href="sh_tower.html">Shanghai Tower</a></li>
+            <li><a href="abradz.html">Abradż al-Bajt</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><input id="mode" type="button" value="Przełącz tryb" onclick="toggleBackground()"></li>
+        </ul>
+    </nav>
+
+    <script>
+        $("#mode").on("mouseover", function () {
+            $(this).animate({
+                width: 100
+            }, 800);
+        });
+
+        $("#mode").on("mouseout", function () {
+            $(this).animate({
+                width: 90
+            }, 800);
+        });
+    </script>
+
+    <section>
+        <h2>Abradż al-Bajt</h2>
+        <p>kompleks hotelowy w Mekce, w Arabii Saudyjskiej, postmodernistyczny, wzniesiony w latach 2004–2011 według projektu zespołu architektów biura architektonicznego SL Rasch; znajduje się w bezpośrednim sąsiedztwie Świętego Meczetu.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/pl/thumb/f/f4/Abraj-al-Bait-Towers.JPG/180px-Abraj-al-Bait-Towers.JPG" alt="Ilustracja" />
+
+        <h3>W czasie budowy na tle Świętego Meczetu</h3>
+        <p>Abradż al-Bajt znajduje się w pobliżu największego na świecie meczetu i najświętszego miejsca islamu, Al-Masdżid al-Haram.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/The_Holy_Mosque_in_Mecca.jpg/200px-The_Holy_Mosque_in_Mecca.jpg" alt="w czasie budowy na tle Świętego Meczetu, 2006" />
+
+        <h3>Widziany z lotu ptaka</h3>
+        <p>Kompleks posiada kilka światowych rekordów, w tym najwyższy hotel na świecie, najwyższy zegar wieżowy na świecie, największa na świecie tarcza zegara[1], i największy na świecie budynek pod względem powierzchni.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Final_circulation_of_the_Kaaba.jpg/226px-Final_circulation_of_the_Kaaba.jpg" alt="w czasie budowy widziany z lotu ptaka, 2010" />
+    </section>
+
+    <footer>
+        <p>Autor: 169391</p>
+        <p>169391@student.uwm.edu.pl</p>
+    </footer>
+</body>
+</html>
