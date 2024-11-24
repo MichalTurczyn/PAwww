@@ -66,4 +66,10 @@
     </section>
 
 </body>
+<?php
+$nr_indeksu = '169391';
+$nrGrupy = '4';
+
+echo 'Autor: Michał Turczyn '.$nr_indeksu.' grupa '.$nrGrupy.'<br/><br/>';
+?>
 </html>
