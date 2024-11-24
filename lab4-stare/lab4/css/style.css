@@ -29,9 +29,9 @@ body {
     user-select: none;
 }
 
-#mode:hover {
-    background-color: #005f6b;
-}
+    #mode:hover {
+        background-color: #005f6b;
+    }
 
 
 nav {
@@ -39,28 +39,28 @@ nav {
     padding: 16px 0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content:center;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+    }
 
-nav ul li {
-    margin: 0 20px;
-}
+        nav ul li {
+            margin: 0 20px;
+        }
 
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 19px;
-}
+            nav ul li a {
+                text-decoration: none;
+                color: white;
+                font-size: 19px;
+            }
 
-nav ul li a:hover {
-    color: #f39c12;
-}
+                nav ul li a:hover {
+                    color: #f39c12;
+                }
 
 section {
     padding: 40px 20px;
@@ -71,9 +71,12 @@ section {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+#mode{
+    padding: 3px;
+}
 
-h1,
-h2 {
+
+h1, h2 {
     margin-bottom: 20px;
 }
 
@@ -89,35 +92,34 @@ form {
     margin: 0 auto;
 }
 
-form label {
-    text-align: left;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #333;
-}
+    form label {
+        text-align: left;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+    }
 
-form input,
-form textarea {
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 100%;
-    font-size: 16px;
-}
+    form input, form textarea {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 100%;
+        font-size: 16px;
+    }
 
-form button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+    form button {
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 
-form button:hover {
-    background-color: #f39c12;
-}
+        form button:hover {
+            background-color: #f39c12;
+        }
 
 
 footer {

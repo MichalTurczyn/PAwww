@@ -31,18 +31,18 @@ function clear(form) {
 
 function toggleBackground() {
     const body = document.body;
-    const section = document.querySelector('section');
+    const section = document.querySelector('section');  // Pobiera pierwszy element <section>
 
     if (isDark) {
-        body.style.backgroundColor = '#FFFFFF';
-        body.style.color = '#000000';
-        section.style.backgroundColor = '#F0F0F0';
-        section.style.color = '#000000';
+        body.style.backgroundColor = '#FFFFFF';      // Zmiana t³a strony na jasny
+        body.style.color = '#000000';                // Zmiana koloru tekstu na ciemny
+        section.style.backgroundColor = '#F0F0F0';   // Zmiana t³a sekcji na jasny
+        section.style.color = '#000000';             // Zmiana koloru tekstu w sekcji na ciemny
     } else {
-        body.style.backgroundColor = '#222222';
-        body.style.color = '#FFFFFF';
-        section.style.backgroundColor = '#333333';
-        section.style.color = '#FFFFFF';
+        body.style.backgroundColor = '#222222';      // Zmiana t³a strony na ciemny
+        body.style.color = '#FFFFFF';                // Zmiana koloru tekstu na jasny
+        section.style.backgroundColor = '#333333';   // Zmiana t³a sekcji na ciemny
+        section.style.color = '#FFFFFF';             // Zmiana koloru tekstu w sekcji na jasny
     }
-    isDark = !isDark;
+    isDark = !isDark;  // Prze³¹czenie stanu ciemnego/jasnego trybu
 }
