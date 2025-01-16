@@ -141,13 +141,22 @@ function DodajProdukt()
     $zdjecie = NULL;
 
     if (!empty($_FILES['zdjecie']['tmp_name'])) {
-        $zdjecie = file_get_contents($_FILES['zdjecie']['tmp_name']);
+        $upload_dir = '../img/';
+        
+        $file_name = uniqid() . '_' . basename($_FILES['zdjecie']['name']);
+        $sciezka_zdjecia = $upload_dir . $file_name;
+    
+        if (move_uploaded_file($_FILES['zdjecie']['tmp_name'], $sciezka_zdjecia)) {
+            $zdjecie = 'img/' . $file_name;
+        } else {
+            die('Nie udało się przesłać zdjęcia.');
+        }
     }
 
 
     $query = "INSERT INTO products (tytul, opis, data_utworzenia, data_modyfikacji, data_wygasniecia, cena_netto, podatek_vat, ilosc_sztuk_w_magazynie, status_dostepnosci, id_kategorii, gabaryt_produktu, zdjecie) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($link, $query);
-    mysqli_stmt_bind_param($stmt, 'sssssiissssb', $tytul, $opis, $data_utworzenia, $data_modyfikacji, $data_wygasniecia, $cena_netto, $podatek_vat, $ilosc, $status_dostepnosci, $id_kategorii, $gabaryt_produktu, $zdjecie);
+    mysqli_stmt_bind_param($stmt, 'sssssiisssss', $tytul, $opis, $data_utworzenia, $data_modyfikacji, $data_wygasniecia, $cena_netto, $podatek_vat, $ilosc, $status_dostepnosci, $id_kategorii, $gabaryt_produktu, $zdjecie);
 
     if (mysqli_stmt_execute($stmt)) {
         echo "<script>window.location.href='products.php';</script>";
@@ -263,9 +272,16 @@ function EdytujProdukt($id, $data_modyfikacji)
     $gabaryt_produktu = $_POST['gabaryt_produktu'];
     $zdjecie = NULL;
     if (!empty($_FILES['zdjecie']['name'])) {
-        $upload_dir = 'uploads/';
-        $zdjecie = $upload_dir . basename($_FILES['zdjecie']['name']);
-        move_uploaded_file($_FILES['zdjecie']['tmp_name'], __DIR__ . '/' . $zdjecie);
+        $upload_dir = '../img/';
+        
+        $file_name = uniqid() . '_' . basename($_FILES['zdjecie']['name']);
+        $sciezka_zdjecia = $upload_dir . $file_name;
+    
+        if (move_uploaded_file($_FILES['zdjecie']['tmp_name'], $sciezka_zdjecia)) {
+            $zdjecie = 'img/' . $file_name;
+        } else {
+            die('Nie udało się przesłać zdjęcia.');
+        }
 
     } else {
         $zdjecie = $_POST['stare_zdjecie'];
@@ -273,7 +289,7 @@ function EdytujProdukt($id, $data_modyfikacji)
 
     $query = "UPDATE products SET tytul = ?, opis = ?, data_modyfikacji = ?, data_wygasniecia = ?, cena_netto = ?, podatek_vat = ?, ilosc_sztuk_w_magazynie = ?, status_dostepnosci = ?, id_kategorii = ?, gabaryt_produktu = ?, zdjecie = ? WHERE id = ?";
     $stmt = mysqli_prepare($link, $query);
-    mysqli_stmt_bind_param($stmt, 'ssssdiissibi', $tytul, $opis, $data_modyfikacji, $data_wygasniecia, $cena_netto, $podatek_vat, $ilosc, $status_dostepnosci, $id_kategorii, $gabaryt_produktu, $zdjecie, $id);
+    mysqli_stmt_bind_param($stmt, 'ssssdiissisi', $tytul, $opis, $data_modyfikacji, $data_wygasniecia, $cena_netto, $podatek_vat, $ilosc, $status_dostepnosci, $id_kategorii, $gabaryt_produktu, $zdjecie, $id);
 
     if (mysqli_stmt_execute($stmt)) {
         echo "<script>window.location.href='products.php';</script>";
@@ -327,9 +343,6 @@ function PokazProdukty()
             $status_dostepnosci = 'Niedostępny';
         }
 
-        $zdjecie = $row['zdjecie'] ? 'data:image/jpeg;base64,' . base64_encode($row['zdjecie']) : null;
-        $miniatura = $zdjecie ? '<img src="' . $zdjecie . '" alt="Zdjęcie" width="80" height="80">' : 'Brak zdjęcia';
-
 
         echo '<tr>';
         echo '<td>' . htmlspecialchars($row['id']) . '</td>';
@@ -339,7 +352,7 @@ function PokazProdukty()
         echo '<td>' . htmlspecialchars($row['podatek_vat']) . '%</td>';
         echo '<td>' . htmlspecialchars($row['ilosc_sztuk_w_magazynie']) . '</td>';
         echo '<td>' . htmlspecialchars($status_dostepnosci) . '</td>';
-        echo '<td>' . $miniatura . '</td>';
+        echo '<td> <img src="../' . htmlspecialchars($row['zdjecie']) . '" alt="Zdjęcie produktu" style="max-width: 50px; max-height: 50px;"> </td>';
         echo '<td>
                 <form method="post">
                     <input type="hidden" name="produkt_id" value="' . $row['id'] . '">

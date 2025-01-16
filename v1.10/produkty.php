@@ -42,13 +42,14 @@ function pokazProdukty() {
 
     if ($result->num_rows > 0) {
         echo '<table border="1">';
-        echo '<tr><th>Nazwa</th><th>Opis</th><th>Cena brutto</th><th>Dodaj do koszyka</th></tr>';
+        echo '<tr><th>Nazwa</th><th>Opis</th><th>Cena brutto</th><th>Zdjęcie</th><th>Dodaj do koszyka</th></tr>';
         while ($row = $result->fetch_assoc()) {
             $cenaBrutto = $row['cena_netto'] + ($row['cena_netto'] * $row['podatek_vat'] / 100);
             echo '<tr>';
             echo '<td>' . htmlspecialchars($row['tytul']) . '</td>';
             echo '<td>' . htmlspecialchars($row['opis']) . '</td>';
             echo '<td>' . number_format($cenaBrutto, 2) . ' PLN</td>';
+            echo '<td> <img src="' . htmlspecialchars($row['zdjecie']) . '" alt="Zdjęcie produktu" style="max-width: 100px; max-height: 100px;"> </td>';
             echo '<td>
                 <form method="post" action="">
                     <input type="hidden" name="id_produktu" value="' . $row['id'] . '">
