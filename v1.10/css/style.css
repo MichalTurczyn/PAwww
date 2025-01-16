@@ -1,41 +1,25 @@
-﻿* {
+﻿/* Resetowanie stylów podstawowych */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    text-align: center;
+    background-color: #f4f4f9;
 }
 
-
-/* Właćiwości przycisku "mode" zmiany trybu wyświetlania */
-#mode {
-    padding: 8px 15px;
-    border: none;
-    background-color: #008CBA;
-    color: white;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-right: 20px;
-    transition: background-color 0.3s ease;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+h1, h2 {
+    margin-bottom: 20px;
 }
 
-/* Właćiwości przycisku "mode" po najechaniu */
-#mode:hover {
-    background-color: #005f6b;
+p {
+    margin-bottom: 20px;
+    font-size: 16px;
 }
-
 
 nav {
     background-color: #333;
@@ -65,75 +49,127 @@ nav ul li a:hover {
     color: #f39c12;
 }
 
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: dimgray;
+    color: white;
+}
+
+/* Stylizacja sekcji */
 section {
     padding: 40px 20px;
-    text-align: center;
     background-color: #F0F0F0;
     margin: 20px auto;
     max-width: 1200px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-
-h1,
-h2 {
-    margin-bottom: 20px;
+/* Stylizacja formularza logowania */
+.logowanie {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-p {
-    margin-bottom: 20px;
-    font-size: 16px;
+.logowanie h1,
+.logowanie h2 {
+    text-align: center;
+    color: #333;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-form label {
-    text-align: left;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-form input,
-form textarea {
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+.logowanie input[type="text"],
+.logowanie input[type="password"],
+.logowanie input[type="submit"],
+.logowanie select {
     width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     font-size: 16px;
 }
 
-form button {
+.logowanie input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.logowanie input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.log4_t {
+    text-align: right;
+    padding-right: 10px;
+    color: #555;
+}
+
+/* Stylizacja tabel w panelach */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: white;
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #333;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Przycisk akcji */
+form button,
+input[type="submit"],
+input[type="button"] {
     padding: 10px 20px;
     background-color: #333;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
-form button:hover {
+form button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
     background-color: #f39c12;
 }
 
-
-footer {
-    text-align: center;
-    padding: 3px;
-    background-color: dimgray;
-    color: black;
+/* Stylizacja drzewa kategorii */
+ul {
+    list-style-type: none;
+    padding-left: 20px;
 }
 
-
-/* Właćiwości kontenera "watch" zawierającego zegar */
-#watch {
-    display: flex;
-    flex-direction: column;
-    color: white;
-
+li {
+    margin-bottom: 10px;
+    font-size: 16px;
 }
+
+li::before {
+    content: "• ";
+    color: #f39c12;
+}
+
